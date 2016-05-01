@@ -33,7 +33,7 @@ function [bestConfig,ex_mat,delta,sampledError] = APE(marker,img,in_mat,minDim,.
 	
 	% preCalculation
   t1 = tic;
-	[marker, img, bounds, steps, dim] = preCal(in_mat, marker, img, minDim, minTz, maxTz, delta);
+	[marker, img, bounds, steps, dim] = preCal(in_mat, marker, img, minDim, minTz, maxTz, delta, verbose);
 	if (verbose)
     fprintf('pre-time: %f\n', toc(t1));
   end
