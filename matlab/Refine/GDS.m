@@ -59,7 +59,7 @@ function [ex_mat bestEa] = GDS(marker, img, in_mat, inipose, minDim, delta, boun
     % to next level?
 		if ((sum(bestPose == inipose) == 6) || (mean(bestEas)*0.999 < bestEa))
       % terminate?
-      if (newDelta < 0.01)
+      if (newDelta < 0.005)
         break;
       end
       level = level + 1;
