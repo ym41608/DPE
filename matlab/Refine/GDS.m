@@ -18,7 +18,7 @@ function [ex_mat bestEa] = GDS(marker, img, in_mat, inipose, minDim, delta, boun
   ys = randi(dim.marker.h, [1,numPoints]);
 
   %% main loop
-  deltaFact = 1.308;
+  deltaFact = 1.511;%1.308;
   level = 1;
   newDelta = delta;
   bestEas = ones(1,3);

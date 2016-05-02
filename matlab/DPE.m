@@ -1,4 +1,4 @@
-function [bestConfig,ex_mat,delta,sampledError] = DPE(M, I, in_mat, minDim,... % mandatory
+function [ex_mat ex_mats] = DPE(M, I, in_mat, minDim,... % mandatory
    photometricInvariance,minTz,maxTz,delta,method,verbose,epsilon) %optional                                                                        
 	
 	% set default values for optional variables
@@ -40,7 +40,7 @@ function [bestConfig,ex_mat,delta,sampledError] = DPE(M, I, in_mat, minDim,... %
   
 	% coarse-to-fine estimation
   t2 = tic;
-	[bestConfig,ex_mat,delta,sampledError] = C2Festimate(marker,img,in_mat,bounds,steps,dim,epsilon,delta,photometricInvariance,verbose);
+	[ex_mat,delta,steps] = C2Festimate(marker,img,in_mat,bounds,steps,dim,epsilon,delta,photometricInvariance,verbose);
 	if (verbose)
     fprintf('\npost-time: %f\n', toc(t2));
   end

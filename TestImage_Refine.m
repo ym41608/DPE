@@ -1,4 +1,4 @@
-function [ex_mat ex_mats] = TestImage_Refine(M, I, in_mat, minDim, minTz, maxTz, delta, photometricInvariance, method, verbose)
+function [ex_mat ex_mats] = TestImage_Refine(ex_mat_ini, M, I, in_mat, minDim, minTz, maxTz, delta, photometricInvariance, method, verbose)
     
     % adding 2 subdirectories to Matlab PATH
 	AddPaths
@@ -7,7 +7,7 @@ function [ex_mat ex_mats] = TestImage_Refine(M, I, in_mat, minDim, minTz, maxTz,
 	[marker, img, bounds, steps, dim] = preCal(in_mat, M, I, minDim, minTz, maxTz, delta, verbose);
   
   % refine
-  [ex_mat ex_mats] = Refine(marker, img, in_mat, ex_mat, minDim, 0.015, bounds, steps, dim, photometricInvariance, method, verbose);
+  [ex_mat ex_mats] = Refine(M, I, in_mat, ex_mat_ini, minDim, delta, bounds, steps, dim, photometricInvariance, method, verbose);
   
 end
 
