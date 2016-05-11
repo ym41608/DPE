@@ -8,6 +8,8 @@ ver2. 160502
               make the terminate delta finer
 ver2.1
   fix step: fix to be the same to the step in last level C2F
+ver2.2
+  fix poses2Trans_mex.cpp
   
 ### Run
 
@@ -15,5 +17,7 @@ for running whole DPE process
 Run singleTest.m
 
 for running APE
-change TestImage_DPE to TestImageAPE in singleTest.m
+comment TestImage_DPE and uncomment TestImage_APE
 Run singleTest.m
+
+translation term is measured in meters

@@ -52,13 +52,13 @@ void mexFunction(int nlhs, mxArray *plhs[],
 		//  z coordinate is y cross x   so add minus
 		r11 =  cos(rz0)*cos(rz1) - sin(rz0)*cos(rx)*sin(rz1);
 		r12 = -cos(rz0)*sin(rz1) - sin(rz0)*cos(rx)*cos(rz1);
-		r13 = -(sin(rz0)*sin(rx));
+		r13 =  sin(rz0)*sin(rx);
 		r21 =  sin(rz0)*cos(rz1) + cos(rz0)*cos(rx)*sin(rz1);
 		r22 = -sin(rz0)*sin(rz1) + cos(rz0)*cos(rx)*cos(rz1);
-		r23 = -(-cos(rz0)*sin(rx));
+		r23 = -cos(rz0)*sin(rx);
 		r31 =  sin(rx)*sin(rz1);
 		r32 =  sin(rx)*cos(rz1);
-		r33 = -(cos(rx));
+		r33 =  cos(rx);
 		
 		// final transfomration
 		trans[16*i]   = Sxf*r11 + x_w*r31;
