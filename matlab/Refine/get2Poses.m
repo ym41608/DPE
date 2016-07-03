@@ -7,10 +7,14 @@ function poses = get2Poses(in_mat, ex_mat, minDim, method); %'OPnP'
   src(2,:) = src(2,:)./src(3,:);
   if (method == 'OPnP')
     [RR, tt, error, flag] = OPnP(tgt(1:3,:), src(1:2,:));
-    numPoses = min(size(RR, 3), 2);
-    poses = zeros(numPoses, 6);
-    for i = 1:numPoses
-      poses(i, :) = exMat2Rz0RxRz1(RR(:, :, i), tt(:, i));
+    if (flag)
+      poses = exMat2Rz0RxRz1(ex_mat(:,1:3), ex_mat(:,4));
+    else
+      numPoses = min(size(RR, 3), 2);
+      poses = zeros(numPoses, 6);
+      for i = 1:numPoses
+        poses(i, :) = exMat2Rz0RxRz1(RR(:, :, i), tt(:, i));
+      end
     end
   else
     [R1, R2, t1, t2, reprojErr1, reprojErr2] = planePose_IPPE_P(eye(3), tgt(1:3, :), src(1:2,:), 'Harker', true);
