@@ -36,7 +36,12 @@ function [ex_mat bestEa] = GDS(marker, img, in_mat, inipose, minDim, delta, boun
     inBoundaryInds = find(insiders);
     trans_mex = trans_mex(:,inBoundaryInds);
     poses = poses(inBoundaryInds,:);
-		
+    if (numel(poses) == 0)
+      [~, ex_mat] = getTransAndExMatrix(inipose, in_mat);
+      bestEa = 1;
+      break;
+    end
+    
     % evaluate Ea of all poses
 		if (photometricInvariance)
 			distances = EvaluateEa_photo_mex(marker(:,:,1)',img(:,:,1)',...

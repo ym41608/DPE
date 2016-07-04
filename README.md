@@ -11,7 +11,9 @@ ver2.1
 ver2.2
   fix poses2Trans_mex.cpp
 ver2.3
-  fix get2Poses.m  
+  fix get2Poses.m 
+ver2.4
+  fix GDS.m handle the situation when the inipose is out of bound
 
 ### Run
 
